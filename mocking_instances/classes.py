@@ -1,9 +1,12 @@
 class Foo(object):
-    def foo(self):
+    @staticmethod
+    def foo():
         return "Fail"
 
+
 class Bar(object):
-    def bar(self):
+    @staticmethod
+    def bar():
         # Bar depends on Foo instance so that when calling Foo() specific mock instance should be returned
         foo = Foo()
         return foo.foo()
