@@ -20,9 +20,8 @@ class AppTest(unittest.TestCase):
 
     @staticmethod
     def test_patchings_instance_methods_v2():
-        with patch('mocking_instances.classes.Foo') as mock_foo_class:
-            mock_foo_class.return_value = MagicMock(spec=['foo'])
-            mock_foo_class.return_value.foo.return_value = "Pass"
+        with patch('mocking_instances.classes.Foo',
+                   return_value=MagicMock(**{'foo.return_value': "Pass"})) as mock_foo_class:
 
             bar = classes.Bar()
 
