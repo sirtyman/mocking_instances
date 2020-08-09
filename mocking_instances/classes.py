@@ -1,4 +1,7 @@
 class Foo(object):
+    def __init__(self):
+        self.a_param = None
+
     @staticmethod
     def foo():
         return "Fail"
